@@ -12,7 +12,8 @@ optional_modules=""
 AC_SUBST([optional_modules])
 
 # Checks for libraries.
-AC_CHECK_LIB([pcap], [pcap_open_live])
+AC_SEARCH_LIBS([pcap_open_live], [pcap], , 
+	AC_MSG_ERROR([Required library libpcap not found.]))
 AC_CHECK_LIB([rt], [shm_open])
 
 PKG_CHECK_MODULES(LIBEVENT, [libevent >= 1.4], , [
