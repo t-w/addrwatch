@@ -47,7 +47,7 @@ AC_ARG_ENABLE([sqlite3],
 )
 AC_ARG_ENABLE([mysql],
     AS_HELP_STRING([--enable-mysql], [Enable MySQL database output]),
-    AC_CHECK_LIB([mysqlclient], [mysql_real_connect], , [
+    AC_CHECK_LIB([mysqlclient], [mysql_real_connect], :, [
     	AC_MSG_ERROR([Unable to find libmysqlclient.])
     ])
     optional_modules="${optional_modules} addrwatch_mysql"
